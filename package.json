@@ -1,0 +1,69 @@
+{
+  "name": "adaptive-cards-botbuilder",
+  "version": "0.1.0",
+  "description": "Generate Adaptive Cards on the fly inside your Bot Builder chatbot (without any JSON!)",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "tsc -p tsconfig.json",
+    "test": "jest --testMatch '<rootDir>/tests/*.test.+(ts|tsx)'",
+    "test:ci": "npm run test-- --coverage --ci",
+    "lint": "eslint --format=codeframe '**/*.ts'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "**/src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "ts",
+      "tsx"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testPathIgnorePatterns": [
+      "/lib/",
+      "/node_modules/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caian-org/adaptive-cards-botbuilder"
+  },
+  "author": "Caian R. Ertl <hi@caian.org>",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/caian-org/adaptive-cards-botbuilder/issues"
+  },
+  "homepage": "https://github.com/caian-org/adaptive-cards-botbuilder#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.8",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint": "^6.1.0",
+    "husky": "^3.0.5",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "botbuilder": "^4.5.3"
+  }
+}

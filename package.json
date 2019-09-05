@@ -3,12 +3,22 @@
   "version": "0.1.0",
   "description": "Generate Adaptive Cards on the fly inside your Bot Builder chatbot (without any JSON!)",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "keywords": [
+    "adaptive",
+    "cards",
+    "adaptivecards",
+    "botbuilder",
+    "microsoft",
+    "chatbot"
+  ],
   "scripts": {
     "compile": "tsc -p tsconfig.json",
     "test": "jest --testMatch '<rootDir>/tests/*.test.+(ts|tsx)'",
     "test:ci": "npm run test-- --coverage --ci",
-    "lint": "eslint --format=codeframe '**/*.ts'"
+    "lint": "eslint --format=codeframe 'src/**/*.ts'"
   },
+  "prepublish": "npm run compile",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",
